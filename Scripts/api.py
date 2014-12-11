@@ -1,10 +1,6 @@
 import json, urllib, csv
 import nltk
 
-
-
-
-
 def get_text(jobject, urls):
 	texts = []
 	for talk in jobject['results']:
