@@ -10,20 +10,39 @@ class ted(object):
 	def dummy_function(self):
 		print "I am a dummy"
 
+# ***************************************************************
+# tokenized by talk 
+# ***************************************************************
+
 	def words_talk(self):
+		# list of talks, with list of words
 		return pickle.load(open('../Corpus/words_talks.p', 'rb'))
 
-	def words_bag(self):
-		'''list of str'''						# got it!
-		return pickle.load(open('../Corpus/words_bag.p', 'rb'))
-
-	def sents_talk(self):
-		'''list of (list of str)'''				# got it!
+	def word_sent(self):
+		# list of talks with list of sentences, with list of words
 		return pickle.load(open('../Corpus/sents_talks.p', 'rb'))
 
+	def words_para(self):
+		# list of talks, with list of paragraphs, with list of sentences, with list of words
+		return pickle.load(open('../Corpus/words_paragraphs.p', 'rb'))
+
+# ***************************************************************
+# tokenized bag of entire corpus (not separated by talk)
+# ***************************************************************
+
+
+	def words_bag(self):
+		# list of words
+		return pickle.load(open('../Corpus/words_bag.p', 'rb'))
+
 	def sents_bag(self):
-		'''list of (list of str)'''				# got it!
+		# list of sentences (as strings)
 		return pickle.load(open('../Corpus/sents_bag.p', 'rb'))
+
+# ***************************************************************
+# tagged words
+# ***************************************************************
+
 
 	def tagged_words_talk(self):
 		'''list of (str,str) tuple'''			# got it!
@@ -35,6 +54,12 @@ class ted(object):
 
 	def tagged_paras(self):
 		'''list of (list of (list of (str,str)))'''
+		return pickle.load(open('../Corpus/tagged_paragraphs.p', 'rb'))
+
+# ***************************************************************
+# 
+# ***************************************************************
+
 
 	def chunked_sents(self):
 		'''list of (Tree with (str,str) leaves)'''
