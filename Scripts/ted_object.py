@@ -1,6 +1,8 @@
 import pickle
 
 
+
+
 class ted(object):
 
 	def __init__(self):
@@ -42,4 +44,37 @@ class ted(object):
 
 	def parsed_paras(self):
 		'''list of (list of (Tree with str leaves))'''
+
+
+
+
+class features(object):
+
+	def __init__(self):
+		pass
+
+	def confusing(self):
+		confusing_X = pickle.load('../Corpus/confusing.p', 'rb')
+		# insert headers to y_labels because pandas DataFrames require headers
+		confusing_y = pd.DataFrame(row[0] for row in y_labels().insert((0, "confusing", "funny", "informative")))
+		return confusing_X, confusing_y
+
+	def funny(self):
+		funny_X = pickle.load('../Corpus/funny.p', 'rb')
+		# insert headers to y_labels because pandas DataFrames require headers
+		funny_y = pd.DataFrame(row[1] for row in y_labels().insert((0, "confusing", "funny", "informative")))
+		return funny_X, funny_y
+
+	def informative(self):
+		informative_X = pickle.load('../Corpus/informative.p', 'rb')
+		# insert headers to y_labels because pandas DataFrames require headers
+		informative_y = pd.DataFrame(row[2] for row in y_labels().insert((0, "confusing", "funny", "informative")))
+		return informative_X, informative_y
+
+	def y_labels(self):
+		'''list of tuples of category labels (confusing, funny, informative)
+			[(20, 10, 2), ...n] where n = 177'''		# got it!
+		return pickle.load(open('../Corpus/y.p', 'rb'))
+
+
 
