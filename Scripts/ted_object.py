@@ -56,6 +56,10 @@ class ted(object):
 		'''list of (list of (list of (str,str)))'''
 		return pickle.load(open('../Corpus/tagged_paragraphs.p', 'rb'))
 
+	def tagged_topics(self):
+		'''list of (list of (list of int, int, int, list of (str/str chunks))'''
+		return pickle.load(open('../Corpus/tagged_topics.p', 'rb'))
+
 # ***************************************************************
 # 
 # ***************************************************************
